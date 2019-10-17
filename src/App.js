@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route  } from 'react-router';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import Signin from './Login/Signin';
+import Users from './Login/Users';
+import Newcart from './Login/Newcart';
+import Addorganization from './Add/Addorganization';
+import Dashboard from './Dashboard';
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+          <Switch>
+
+            <Route exact path="/" component={() => (<div className="App"><Signin /></div>)} />
+            <Route exact path="/Login/Users" component={() => (<Users />)} />
+            <Route exact path="/Login/Newcart" component={() => (<Newcart />)} />
+            <Route exact path="/Add/Addorganization" component={() => (<Addorganization />)} />
+            <Route exact path="/Dashboard" component={() => (<Dashboard />)} />
+          </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

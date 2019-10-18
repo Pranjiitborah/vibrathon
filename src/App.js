@@ -8,6 +8,8 @@ import Users from './Login/Users';
 import Newcart from './Login/Newcart';
 import Addorganization from './Add/Addorganization';
 import Dashboard from './Dashboard';
+import Addbranch from './Add/Addbranch';
+import Addadmin from './Add/Addadmin';
 
 class App extends Component {
   render() {
@@ -20,6 +22,8 @@ class App extends Component {
             <Route exact path="/Login/Newcart" component={() => (<Newcart />)} />
             <Route exact path="/Add/Addorganization" component={() => (<Addorganization />)} />
             <Route exact path="/Dashboard" component={() => (<Dashboard />)} />
+            <Route exact path="/Add/Addbranch" component={() => (<Addbranch />)} />
+            <Route exact path="/Add/Addadmin" component={() => (<Addadmin />)} />
           </Switch>
       </BrowserRouter>
     );

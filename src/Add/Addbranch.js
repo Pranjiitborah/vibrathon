@@ -2,8 +2,7 @@ import React from 'react';
 import Header from '../Common/Header'; 
 import Footer from '../Common/Footer'; 
 
-
-export default class Addorganization extends React.Component{
+export default class Addbranch extends React.Component{
 	constructor() {
         super();
         this.state = {
@@ -29,10 +28,10 @@ export default class Addorganization extends React.Component{
         e.preventDefault();
         if (this.validateForm()) {
             let fields = {};
-            fields["thumbsnails"] = "";
-            fields["orgname"] = "";
-            fields["haddress"] = "";
-            fields["certificates"] = "";
+            fields["bname"] = "";
+            fields["baddress"] = "";
+            fields["borg"] = "";
+            fields["bproduct"] = "";
             this.setState({fields:fields});
             alert("Form submitted");
         }
@@ -45,31 +44,24 @@ export default class Addorganization extends React.Component{
         let errors = {};
         let formIsValid = true;
 		
-		if (!fields["thumbsnails"]) {
+		if (!fields["bname"]) {
           formIsValid = false;
-          errors["thumbsnails"] = "*Please enter thumbnail.";
+          errors["bname"] = "*Please enter branch name.";
         }
 		
-        if (!fields["orgname"]) {
+        if (!fields["baddress"]) {
           formIsValid = false;
-          errors["orgname"] = "*Please enter your organisation name.";
-        }
-  
-        if (typeof fields["orgname"] !== "undefined") {
-          if (!fields["orgname"].match(/^[a-zA-Z ]*$/)) {
-            formIsValid = false;
-            errors["orgname"] = "*Please enter alphabet characters only.";
-          }
+          errors["baddress"] = "*Please enter your branch address.";
         }
 		
-		if (!fields["haddress"]) {
+		if (!fields["borg"]) {
           formIsValid = false;
-          errors["haddress"] = "*Please enter head address.";
+          errors["borg"] = "*Please enter branch orgsanition.";
         }
 		
-		if (!fields["certificates"]) {
+		if (!fields["bproduct"]) {
           formIsValid = false;
-          errors["certificates"] = "*Please enter certificate.";
+          errors["bproduct"] = "*Please enter branch product.";
         }
   
         this.setState({
@@ -88,30 +80,38 @@ export default class Addorganization extends React.Component{
                 <div className="col-md-10 content">
                     <div className="panel panel-default">
                         <div className="panel-heading">
-                            Add Organization
+                            Add Branch
                         </div>
                         <div className="panel-body">
                         <div className="form">
                         <form method="post"  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
                             <div className="form-group">
-                                <label for="form2">Thumbnail</label>
-                                <input type="file" name="thumbsnails" value={this.state.fields.thumbsnails} onChange={this.handleChange} className="form-control" placeholder="" />
-								<div className="errorMsg">{this.state.errors.thumbsnails}</div>
+                                <label for="form2">Branch Admin Name</label>
+                                <input type="text" name="bname" value={this.state.fields.bname} onChange={this.handleChange} className="form-control" placeholder="Enter Admin Name" />
+								                <div className="errorMsg">{this.state.errors.bname}</div>
                             </div>
                             <div className="form-group">
-                                <label for="form2">Organisation Name</label>
-                                <input type="text" name="orgname" value={this.state.fields.orgname} onChange={this.handleChange}  className="form-control" placeholder="Enter Organisation Name" />
-                                <div className="errorMsg">{this.state.errors.orgname}</div>
+                                <label for="form2">Branch Address</label>
+                                <input type="text" name="baddress" value={this.state.fields.baddress} onChange={this.handleChange}  className="form-control" placeholder="Enter Branch Address" />
+                                <div className="errorMsg">{this.state.errors.baddress}</div>
                             </div>
                             <div className="form-group">
-                                <label for="form2">Head Address</label>
-                                <input type="text" name="haddress" value={this.state.fields.haddress} onChange={this.handleChange} className="form-control" placeholder="Enter Address" />
-								<div className="errorMsg">{this.state.errors.haddress}</div>
+                                <label for="form2">Organisation</label>
+                                <select className="form-control" name="borg" value={this.state.fields.borg} onChange={this.handleChange}>
+                                  <option>--</option>
+                                  <option>df</option>
+                                  <option>dfdf</option>
+                                </select>
+                                <div className="errorMsg">{this.state.errors.borg}</div>
                             </div>
                             <div className="form-group">
-                                <label for="form2">Certificate</label>
-                                <input type="file" name="certificates" value={this.state.fields.certificates} onChange={this.handleChange} className="form-control" placeholder="Enter Certificate" />
-								<div className="errorMsg">{this.state.errors.certificates}</div>
+                                <label for="form2">Product</label>
+                                <select className="form-control" name="bproduct" value={this.state.fields.bproduct} onChange={this.handleChange}>
+                                  <option>--</option>
+                                  <option>df</option>
+                                  <option>dfdf</option>
+                                </select>
+								                <div className="errorMsg">{this.state.errors.bproduct}</div>
                             </div>
                             <div className="form-group text-center">
                                 <button type="submit" className="button btn btn-default vibrathon-btn"><span>Submit</span></button>

@@ -44,8 +44,8 @@ export default class Header extends React.Component{
 	            <ul class="list-unstyled">
                     <li><Link to="/Dashboard" class="list-group-item  bg-active"><i class="fa fa-tachometer"></i> Dashboard <span class="badge">12</span> </Link></li>
                     <li><Link to="/Add/Addorganization" class="list-group-item"><i class="fa fa-user"></i> Add Orgainization</Link> </li>
-                    <li><a href="" class="list-group-item"><i class="fa fa-plus-square"></i> Add Branch</a> </li>
-                    <li><a href="" class="list-group-item"><i class="fa fa-wrench"></i> Add Admin</a> </li>
+                    <li><Link to="/Add/Addbranch" class="list-group-item"><i class="fa fa-plus-square"></i> Add Branch</Link> </li>
+                    <li><Link to="/Add/Addadmin" class="list-group-item"><i class="fa fa-wrench"></i> Add Admin</Link> </li>
                     <li><a href="" class="list-group-item"><i class="fa fa-power-off"></i> Log Out</a> </li>
                     </ul>
                 </div>

@@ -14,6 +14,8 @@ import Users from './Login/Users';
 import Newcart from './Login/Newcart';
 import Addorganization from './Add/Addorganization';
 import Dashboard from './Dashboard';
+import Addbranch from './Add/Addbranch';
+import Addadmin from './Add/Addadmin';
 
 const appRoute =[
    {
@@ -45,6 +47,16 @@ const appRoute =[
     path:"/Dashboard",
    	isExactPath: true,
    	component: <Dashboard />
+   },
+   {
+    path:"Add/Addbranch",
+   	isExactPath: true,
+   	component: <Addbranch />
+   },
+   {
+    path:"Add/Addadmin",
+   	isExactPath: true,
+   	component: <Addadmin />
    },
 ];
 

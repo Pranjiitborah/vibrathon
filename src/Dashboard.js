@@ -66,14 +66,18 @@ export default class Dashboard extends React.Component{
                             </div> 
                         </div>
 						<hr/>
-						<div className="mixed-chart">
+                        <div className="col-lg-12">
+                        <div className="col-lg-7">
+						            <div className="mixed-chart">
                         <Chart
                             options={this.state.options}
                             series={this.state.series}
                             type="line"
                             width="100%"
-                            height="400px"
+                            height="250px"
                         />
+                        </div>
+                        </div>
                         </div>
                         </div>
                     </div>

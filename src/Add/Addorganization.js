@@ -96,7 +96,7 @@ export default class Addorganization extends React.Component{
                             <div className="form-group">
                                 <label for="form2">Thumbnail</label>
                                 <input type="file" name="thumbsnails" value={this.state.fields.thumbsnails} onChange={this.handleChange} className="form-control" placeholder="" />
-								<div className="errorMsg">{this.state.errors.thumbsnails}</div>
+								                <div className="errorMsg">{this.state.errors.thumbsnails}</div>
                             </div>
                             <div className="form-group">
                                 <label for="form2">Organisation Name</label>

@@ -382,9 +382,43 @@ body {
   background-color: #2CB69D;
 }
 
+.dash-bgsclr {
+  background-color: #e9eef4;
+  margin-bottom: 20px;
+}
+.dash-cophead {
+  background-color: #a3dfe8;
+  text-align: center;
+  padding: 6px;
+  font-size: 20px;
+}
+.dash-kertxt{
+  margin-bottom: 0px;
+  font-weight: 900;
+  color: #7d7d7d;
+  font-size: 15px;
+}
+
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+  margin-top: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 15px ! important;
+}
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+  color: #000;
+  display: inline-block;
+  width: 2.7rem ! important;
+  line-height: 1.7rem;
+  text-align: center;
+  font-size: 14px;
+  margin: 0.166rem;
+}
+
 
 .footer {
-  position: absolute;
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;

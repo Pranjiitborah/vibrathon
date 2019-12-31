@@ -2,30 +2,53 @@ import React from 'react';
 import Header from './Common/Header'; 
 import Footer from './Common/Footer'; 
 import Chart from "react-apexcharts";
-
+import DatePicker from "react-datepicker";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class Dashboard extends React.Component{
 	constructor(props) {
         super(props);
     
         this.state = {
+          startDate: new Date(),
+          chead:'Kerla coconut farm',
+          ctxt:'1300gm',
           options: {
             chart: {
               id: "basic-bar"
             },
             xaxis: {
-              categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+              categories: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+            },
+            xaxisa: {
+              categoriesa: [2015, 2016, 2017, 2018, 2019]
             }
           },
           series: [
             {
-              name: "series-1",
-              data: [30, 40, 45, 50, 49, 60, 70, 91]
+              name: "Oil Storage",
+              data: [0, 10, 25, 45, 60, 75, 100]
             }
-          ]
+          ],
+          seriesa: [
+            {
+              name: "Preview",
+              data: [20, 15, 30, 50, 70, 75, 100]
+            }
+          ],
+          seriesb: [44, 55, 41, 17, 15],
+          labels: ['A', 'B', 'C', 'D', 'E']
         };
       }
+      
     
+      handleChange = date => {
+        this.setState({
+          startDate: date
+        });
+      };
+
     render(){
 		
 	return(
@@ -65,10 +88,10 @@ export default class Dashboard extends React.Component{
                             </div>
                             </div> 
                         </div>
-						<hr/>
+						            <hr/>
                         <div className="col-lg-12">
-                        <div className="col-lg-7">
-						            <div className="mixed-chart">
+                        <div className="col-lg-8">
+						            <div className="mixed-chart dash-bgsclr">
                         <Chart
                             options={this.state.options}
                             series={this.state.series}
@@ -76,6 +99,56 @@ export default class Dashboard extends React.Component{
                             width="100%"
                             height="250px"
                         />
+                        </div>
+                        </div>
+                        <div className="col-lg-4">
+                        <div className="mixed-chart dash-bgsclr">
+                          <Chart
+                            options={this.state.options}
+                            series={this.state.seriesa}
+                            type="bar"
+                            width="100%"
+                            height="250px"
+                          />
+                        </div>
+                        </div>
+                        </div>
+                        <div className="col-lg-12">
+                        <div className="col-lg-8">
+                        <div className="dash-bgsclr">
+                        <div className="row">
+                          <div className="col-lg-6">
+                            <p className="dash-cophead">Copra Supplied</p>
+                            <p className="dash-kertxt">&nbsp; {this.state.chead}</p>
+                            <p>&nbsp; {this.state.ctxt}</p>
+                            <p className="dash-kertxt">&nbsp; {this.state.chead}</p>
+                            <p>&nbsp; {this.state.ctxt}</p>
+                          </div>
+                          <div className="col-lg-6">
+                            <p className="dash-cophead">Oil Distributor</p>
+                            <table class="table">
+                              <tbody>
+                                <tr>
+                                  <td>Dist</td>
+                                  <td>12kg</td>
+                                </tr>
+                                <tr>
+                                  <td>Dist</td>
+                                  <td>12kg</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div className="col-lg-4">
+                        <div className="donut dash-bgsclr">
+                          <Chart options={this.state.options} series={this.state.seriesb} type="donut" width="100%" />
+                          <DatePicker className="form-control"
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                          />
                         </div>
                         </div>
                         </div>

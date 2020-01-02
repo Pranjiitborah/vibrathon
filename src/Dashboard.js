@@ -12,6 +12,7 @@ export default class Dashboard extends React.Component{
     
         this.state = {
           startDate: new Date(),
+          startDates: new Date(),
           chead:'Kerla coconut farm',
           ctxt:'1300gm',
           options: {
@@ -40,14 +41,20 @@ export default class Dashboard extends React.Component{
           seriesb: [44, 55, 41, 17, 15],
           labels: ['A', 'B', 'C', 'D', 'E']
         };
+         this.handleChange=this.handleChange.bind(this);
+         this.handleChanges=this.handleChanges.bind(this)
       }
-      
     
-      handleChange = date => {
+      handleChange(date) {
         this.setState({
           startDate: date
         });
-      };
+      }
+      handleChanges(date) {
+        this.setState({
+          startDates: date
+        });
+      }
 
     render(){
 		
@@ -145,10 +152,22 @@ export default class Dashboard extends React.Component{
                         <div className="col-lg-4">
                         <div className="donut dash-bgsclr">
                           <Chart options={this.state.options} series={this.state.seriesb} type="donut" width="100%" />
+                          <div className="row">
+                          <div className="col-lg-6">
+                          <p className="dash-btms">To</p>
                           <DatePicker className="form-control"
                             selected={this.state.startDate}
                             onChange={this.handleChange}
                           />
+                          </div>
+                          <div className="col-lg-6">
+                          <p className="dash-btms">From</p>
+                          <DatePicker className="form-control"
+                            selected={this.state.startDates}
+                            onChange={this.handleChanges}
+                          />
+                          </div>
+                          </div>
                         </div>
                         </div>
                         </div>
